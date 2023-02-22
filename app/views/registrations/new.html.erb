@@ -1,0 +1,35 @@
+<%= form_with model: @user, url: sign_up_path do |form| %>
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages_for(:email).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %><br>
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages_for(:password).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation %><br>
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "sign up"%>
+  </div>
+<% end %>

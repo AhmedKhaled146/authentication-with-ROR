@@ -1,0 +1,16 @@
+<%= form_with model: Current.user, url: edit_password_path do |form| %>
+
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %><br>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation %><br>
+  </div>
+
+  <div>
+    <%= form.submit "update"%>
+  </div>
+<% end %>

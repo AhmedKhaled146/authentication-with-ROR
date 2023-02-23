@@ -7,11 +7,16 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user.present? && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to show_path(@user)
     else
       render :new
     end
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
 
 
 

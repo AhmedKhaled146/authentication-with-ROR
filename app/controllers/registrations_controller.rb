@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html {redirect_to root_path}
+        format.html {redirect_to show_path(@user)}
       else
         format.html {render :new, status: :unprocessable_entity}
       end
